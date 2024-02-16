@@ -1,1 +1,20 @@
-
+.main-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ddcaa4;
+}
+.button-container {
+  font-size: 20px;
+  width: 20%;
+  margin: 50px;
+}
+.welcome-button {
+  margin: 15px;
+  padding: 25px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 20px;
+}

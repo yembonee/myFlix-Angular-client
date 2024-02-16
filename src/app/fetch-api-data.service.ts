@@ -45,7 +45,7 @@ export class FetchApiDataService {
   getOneMovie(title: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + 'movies/' + title, {
+      .post(apiUrl + '/movies/' + title, {
         headers: new HttpHeaders({
           Authorization: 'Bearer' + token,
         }),
@@ -90,7 +90,7 @@ export class FetchApiDataService {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + '/users' + user.Username + '/movies' + movie._id, null, {
+      .post(apiUrl + '/users/' + user.Username + '/movies/' + movie._id, null, {
         headers: new HttpHeaders({
           Authorization: 'Bearer' + token,
         }),
