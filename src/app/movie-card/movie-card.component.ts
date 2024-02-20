@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -12,7 +12,7 @@ import { DescriptionInfoComponent } from '../description-info/description-info.c
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss'],
 })
-export class MovieCardComponent {
+export class MovieCardComponent implements OnInit {
   movies: any[] = [];
   user: any = {};
   userData = { Username: '', FavoriteMovies: [] };
@@ -27,6 +27,7 @@ export class MovieCardComponent {
 
   ngOnInit(): void {
     this.getMovies();
+    this.getFavoriteMovies();
   }
 
   getMovies(): void {
@@ -71,7 +72,7 @@ export class MovieCardComponent {
     this.user = this.fetchApiData.getUser();
     this.userData.FavoriteMovies = this.user.FavoriteMovies;
     this.FavoriteMovies = this.user.FavoriteMovies;
-    console.log('Favorite Movies in getFavoriteMovie', this.FavoriteMovies);
+    console.log('Fav Movies in getFavoriteMovie', this.FavoriteMovies);
   }
 
   isFav(movie: any): any {
@@ -84,8 +85,9 @@ export class MovieCardComponent {
   }
 
   toggleFavorite(movie: any): void {
-    const isFavoriteMovie = this.isFav(movie);
-    isFavoriteMovie ? this.removeFavMovie(movie) : this.addFavMovie(movie);
+    const isFavorite = this.isFav(movie);
+    console.log(isFavorite);
+    isFavorite ? this.removeFavMovie(movie) : this.addFavMovie(movie);
   }
 
   addFavMovie(movie: any): void {

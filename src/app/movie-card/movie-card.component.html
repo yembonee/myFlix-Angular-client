@@ -57,17 +57,8 @@
       >
         Description
       </button>
-      <button mat-icon-button color="accent" (click)="toggleFavorite(movie)">
-        <mat-icon
-          *ngIf="!isFav(movie)"
-          style="transform: scale(1.5)"
-          color="accent"
-          >favorite_border</mat-icon
-        >
-        <mat-icon
-          *ngIf="isFav(movie)"
-          style="transform: scale(1.5)"
-          color="accent"
+      <button mat-icon-button color="accent" (click)="addFavMovie(movie)">
+        <mat-icon style="transform: scale(1.5)" color="accent"
           >favorite_border</mat-icon
         >
       </button>

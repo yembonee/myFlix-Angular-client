@@ -45,7 +45,7 @@ export class FetchApiDataService {
   getOneMovie(title: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + '/movies/' + title, {
+      .get(apiUrl + '/movies/' + title, {
         headers: new HttpHeaders({
           Authorization: 'Bearer' + token,
         }),
@@ -55,7 +55,7 @@ export class FetchApiDataService {
   getDirector(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + '/movies/director/:directorName', {
+      .get(apiUrl + '/movies/director/:directorName', {
         headers: new HttpHeaders({
           Authorization: 'Bearer' + token,
         }),
@@ -65,7 +65,7 @@ export class FetchApiDataService {
   getGenre(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + '/movies/genre/:genreName', {
+      .get(apiUrl + '/movies/genre/:genreName', {
         headers: new HttpHeaders({
           Authorization: 'Bearer' + token,
         }),
@@ -79,7 +79,7 @@ export class FetchApiDataService {
   getFavoriteMovie(username: string): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + '/users' + username, {
+      .get(apiUrl + '/users' + username, {
         headers: new HttpHeaders({
           Authorization: 'Bearer' + token,
         }),
@@ -89,6 +89,7 @@ export class FetchApiDataService {
   addFavoriteMovies(movie: any): Observable<any> {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const token = localStorage.getItem('token');
+
     return this.http
       .post(apiUrl + '/users/' + user.Username + '/movies/' + movie._id, null, {
         headers: new HttpHeaders({
@@ -101,7 +102,7 @@ export class FetchApiDataService {
     console.log(userDetails);
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + '/users' + userDetails.Username, userDetails, {
+      .put(apiUrl + '/users/' + userDetails.Username, userDetails, {
         headers: new HttpHeaders({
           Authorization: 'Bearer' + token,
         }),
@@ -112,7 +113,7 @@ export class FetchApiDataService {
     const token = localStorage.getItem('token');
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     return this.http
-      .post(apiUrl + '/users' + user.Username, {
+      .delete(apiUrl + '/users/' + user.Username, {
         headers: new HttpHeaders({
           Authorization: 'Bearer' + token,
         }),
@@ -123,7 +124,7 @@ export class FetchApiDataService {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const token = localStorage.getItem('token');
     return this.http
-      .post(apiUrl + '/users' + user.Username + '/movies' + movie._id, {
+      .delete(apiUrl + '/users/' + user.Username + '/movies' + movie._id, {
         headers: new HttpHeaders({
           Authorization: 'Bearer' + token,
         }),

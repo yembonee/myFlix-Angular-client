@@ -45,6 +45,7 @@ const appRoutes: Routes = [
     DirectorInfoComponent,
     GenreInfoComponent,
     DescriptionInfoComponent,
+    ProfileViewComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

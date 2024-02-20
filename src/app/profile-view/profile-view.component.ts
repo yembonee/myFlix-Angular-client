@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AppModule } from '../app.module';
 
 @Component({
   selector: 'app-profile-view',
@@ -31,6 +30,7 @@ export class ProfileViewComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfile();
+    this.getFavoriteMovies();
   }
 
   getProfile(): void {
