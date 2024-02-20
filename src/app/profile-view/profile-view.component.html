@@ -6,7 +6,7 @@
     </mat-card-header>
     <mat-card-content>
       <p>Email: {{ userData.Email }}</p>
-      <p>Birthday: {{ userData.Birthday }}</p>
+      <p>Birthday: {{ userData.Birthday | date : "longDate" }}</p>
     </mat-card-content>
   </mat-card>
   <mat-card class="update-card">
@@ -53,7 +53,7 @@
         <button
           mat-raised-button
           class="button-profile"
-          color="accent"
+          color="warn"
           (click)="deleteUser()"
           type="submit"
         >

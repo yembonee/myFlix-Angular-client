@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DirectorInfoComponent } from '../director-info/director-info.component';
+import { GenreInfoComponent } from '../genre-info/genre-info.component';
+import { DescriptionInfoComponent } from '../description-info/description-info.component';
 
 @Component({
   selector: 'app-profile-view',
@@ -79,6 +82,36 @@ export class ProfileViewComponent implements OnInit {
       this.movies = resp;
       console.log(this.movies);
       return this.movies;
+    });
+  }
+
+  openDirectorDialog(name: string, bio: string, birth: string): void {
+    this.dialog.open(DirectorInfoComponent, {
+      data: {
+        Name: name,
+        Bio: bio,
+        Birth: birth,
+      },
+      width: '1000px',
+    });
+  }
+
+  openGenreDialog(name: string, description: string): void {
+    this.dialog.open(GenreInfoComponent, {
+      data: {
+        Name: name,
+        Description: description,
+      },
+      width: '500px',
+    });
+  }
+
+  openDescriptionDialog(description: string): void {
+    this.dialog.open(DescriptionInfoComponent, {
+      data: {
+        Description: description,
+      },
+      width: '700px',
     });
   }
 
