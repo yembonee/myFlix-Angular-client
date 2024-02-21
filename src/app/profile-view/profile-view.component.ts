@@ -1,11 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DirectorInfoComponent } from '../director-info/director-info.component';
 import { GenreInfoComponent } from '../genre-info/genre-info.component';
 import { DescriptionInfoComponent } from '../description-info/description-info.component';
+import { UpdateUserInfoComponent } from '../update-user-info/update-user-info.component';
 
 @Component({
   selector: 'app-profile-view',
@@ -15,6 +16,7 @@ import { DescriptionInfoComponent } from '../description-info/description-info.c
 export class ProfileViewComponent implements OnInit {
   @Input() userData = {
     Username: '',
+    Password: '',
     Email: '',
     Birthday: '',
     FavoriteMovies: [],
@@ -48,21 +50,10 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
-  updateUserInfo(): void {
-    this.fetchApiData.editUser(this.userData).subscribe(
-      (result) => {
-        localStorage.setItem('user', JSON.stringify(result));
-        this.snackBar.open('User update successful', 'OK', {
-          duration: 2000,
-        });
-      },
-      (error) => {
-        console.error('Error updating user: ', error);
-        this.snackBar.open('Failed to update user', 'OK', {
-          duration: 2000,
-        });
-      }
-    );
+  openUpdateUserInfoDialog(): void {
+    this.dialog.open(UpdateUserInfoComponent, {
+      width: '360px',
+    });
   }
 
   deleteUser(): void {

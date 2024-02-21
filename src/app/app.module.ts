@@ -26,6 +26,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DirectorInfoComponent } from './director-info/director-info.component';
 import { GenreInfoComponent } from './genre-info/genre-info.component';
 import { DescriptionInfoComponent } from './description-info/description-info.component';
+import { UpdateUserInfoComponent } from './update-user-info/update-user-info.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -46,6 +47,7 @@ const appRoutes: Routes = [
     GenreInfoComponent,
     DescriptionInfoComponent,
     ProfileViewComponent,
+    UpdateUserInfoComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
