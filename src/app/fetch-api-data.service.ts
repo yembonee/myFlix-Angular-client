@@ -74,6 +74,7 @@ export class FetchApiDataService {
   }
   getUser(): Observable<any> {
     const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const token = localStorage.getItem('token');
     return user;
   }
   getFavoriteMovie(username: string): Observable<any> {
