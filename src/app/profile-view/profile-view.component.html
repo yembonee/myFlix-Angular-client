@@ -8,15 +8,12 @@
       class="profile-pic"
       src="https://t3.ftcdn.net/jpg/05/53/79/60/360_F_553796090_XHrE6R9jwmBJUMo9HKl41hyHJ5gqt9oz.jpg"
     />
-    <mat-card-content>
+    <mat-card-content
+      style="justify-content: center; align-items: center; align-self: center"
+    >
       <p>Email: {{ userData.Email }}</p>
       <p>Birthday: {{ userData.Birthday | date : "longDate" }}</p>
     </mat-card-content>
-  </mat-card>
-  <mat-card class="update-card">
-    <mat-card-header class="profile-card-header">
-      <mat-card-title>Update Profile</mat-card-title>
-    </mat-card-header>
     <mat-card-content>
       <mat-card-actions class="actions">
         <button
@@ -52,10 +49,62 @@
       </div>
     </div>
     <div class="movie-card-container">
-      <mat-card *ngFor="let movie of FavoriteMovies" class="movie-card">
-        <div class="image-container">
-          <img mat-card-image src="{{ movie.ImageUrl }}" />
-        </div>
+      <mat-card *ngFor="let movie of FavoriteMovies" class="mat-card">
+        <mat-card-header class="mat-card-header" style="padding: 20px"
+          ><mat-card-title style="font-weight: bold; font-size: 23px">{{
+            movie.Title
+          }}</mat-card-title>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="{{ movie.ImageURL }}"
+          width="390px"
+          height="500px"
+        />
+        <mat-card-actions
+          class="mat-card-actions"
+          style="justify-content: center; align-items: center; padding: 20px"
+        >
+          <button
+            class="genre-button"
+            mat-button
+            color="accent"
+            (click)="openGenreDialog(movie.Genre.Name, movie.Genre.Description)"
+          >
+            Genre
+          </button>
+          <button
+            class="director-button"
+            mat-button
+            color="accent"
+            (click)="
+              openDirectorDialog(
+                movie.Director.Name,
+                movie.Director.Bio,
+                movie.Director.Birth
+              )
+            "
+          >
+            Director
+          </button>
+          <button
+            mat-button
+            class="description-button"
+            color="accent"
+            (click)="openDescriptionDialog(movie.Description)"
+          >
+            Description
+          </button>
+          <button
+            mat-icon-button
+            color="accent"
+            (click)="removeFavMovie(movie)"
+          >
+            <mat-icon style="transform: scale(1.5)" color="accent"
+              >favorite</mat-icon
+            >
+          </button>
+        </mat-card-actions>
       </mat-card>
     </div>
   </div>

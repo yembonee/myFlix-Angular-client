@@ -12,7 +12,7 @@
   min-width: 380px;
 }
 .profile-card-header {
-  font-size: 25px;
+  font-size: 40px;
   margin-bottom: 15px;
   align-items: center;
   justify-content: center;
@@ -40,11 +40,19 @@
 .actions {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
 }
 .actions button {
   margin-top: 15px;
   margin-left: 10px;
   width: 20%;
+}
+
+.button-profile {
+  margin: 15px;
+  padding: 20px;
 }
 
 // Movie Cards
@@ -62,12 +70,38 @@
   justify-content: center;
   margin-top: 2vh;
 }
-.movie-card {
-  margin: 15px;
-  width: 350px;
-  height: 550px;
+
+.mat-card {
+  margin: 85px;
 }
-.img-container {
-  width: 100%;
-  height: 80%;
+
+.mat-card-header {
+  background-color: #ddcaa4;
+  color: #755000;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.mat-card-actions {
+  background-color: #ddcaa4;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.genre-button {
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.director-button {
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.description-button {
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 15px;
 }

@@ -9,13 +9,9 @@
 >
   <mat-card class="mat-card" *ngFor="let movie of movies">
     <mat-card-header class="mat-card-header" style="padding: 20px">
-      <mat-card-title style="font-weight: bold">{{
+      <mat-card-title style="font-weight: bold; font-size: 23px">{{
         movie.Title
       }}</mat-card-title>
-
-      <mat-card-subtitle
-        >Directed By: {{ movie.Director.Name }}</mat-card-subtitle
-      >
     </mat-card-header>
     <img
       src="{{ movie.ImageURL }}"
