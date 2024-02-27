@@ -26,6 +26,14 @@ export class ProfileViewComponent implements OnInit {
   movies: any[] = [];
   FavoriteMovies: any[] = [];
 
+  /**
+   *
+   * @param fetchApiData
+   * @param snackBar
+   * @param router
+   * @param dialog
+   */
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar,
@@ -37,6 +45,10 @@ export class ProfileViewComponent implements OnInit {
     this.getProfile();
     this.getFavoriteMovies();
   }
+
+  /**
+   * @description calls on getUser() to obtain a single user's information
+   */
 
   getProfile(): void {
     this.user = this.fetchApiData.getUser();
@@ -50,11 +62,19 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * @description Opens UpdateUserInfoComponent
+   */
+
   openUpdateUserInfoDialog(): void {
     this.dialog.open(UpdateUserInfoComponent, {
       width: '360px',
     });
   }
+
+  /**
+   * @description calls deleteUser() to remove user from database
+   */
 
   deleteUser(): void {
     this.router.navigate(['welcome']).then(() => {
@@ -68,6 +88,10 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * @description calls getAllMovies() to receive all movies
+   */
+
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -75,6 +99,13 @@ export class ProfileViewComponent implements OnInit {
       return this.movies;
     });
   }
+
+  /**
+   * @description Opens DirectorInfoComponent
+   * @param name - Name of specified Director
+   * @param bio - Bio of Specified Director
+   * @param birth - Birthdate of specified director
+   */
 
   openDirectorDialog(name: string, bio: string, birth: string): void {
     this.dialog.open(DirectorInfoComponent, {
@@ -87,6 +118,12 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * @description Opens GenreInfoComponent
+   * @param name - Name of specified genre
+   * @param description - description of specified genre
+   */
+
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreInfoComponent, {
       data: {
@@ -97,6 +134,11 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * @description Opens DescriptionInfoComponent
+   * @param description - description of specified movie
+   */
+
   openDescriptionDialog(description: string): void {
     this.dialog.open(DescriptionInfoComponent, {
       data: {
@@ -106,12 +148,22 @@ export class ProfileViewComponent implements OnInit {
     });
   }
 
+  /**
+   * @description calls getUser() to obtain FavoriteMovie list
+   */
+
   getFavoriteMovies(): void {
     this.user = this.fetchApiData.getUser();
     this.userData.FavoriteMovies = this.user.FavoriteMovies;
     this.FavoriteMovies = this.user.FavoriteMovies;
     console.log('Fav Movies in getFavoriteMovie', this.FavoriteMovies);
   }
+
+  /**
+   * @description function to check whether or not the selected movie is in the user's FavoriteMovie list
+   * @param movie
+   * @returns true if movie is in list, false if movie is not
+   */
 
   isFav(movie: any): any {
     const MovieID = movie._id;
@@ -121,6 +173,11 @@ export class ProfileViewComponent implements OnInit {
       return false;
     }
   }
+
+  /**
+   * @description calls on getUser() and removeFavoriteMovie() to remove selected movie from FavoriteMovie list
+   * @param movie
+   */
 
   removeFavMovie(movie: any): void {
     this.user = this.fetchApiData.getUser();
