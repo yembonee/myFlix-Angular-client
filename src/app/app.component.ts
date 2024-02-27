@@ -11,7 +11,15 @@ import { MovieCardComponent } from './movie-card/movie-card.component';
 export class AppComponent {
   title = 'myFlix-Angular-client';
 
+  /**
+   * @param {dialog} - dialog component
+   */
+
   constructor(public dialog: MatDialog) {}
+
+  /**
+   * @description - Opens UserRegistrationFormComponent
+   */
 
   openUserRegistrationDialog(): void {
     this.dialog.open(UserRegistrationFormComponent, {
@@ -19,11 +27,19 @@ export class AppComponent {
     });
   }
 
+  /**
+   * @description - Opens UserLoginFormComponent
+   */
+
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
       width: '280px',
     });
   }
+
+  /**
+   * @description - Opens MovieCardComponent
+   */
 
   openMoviesDialog(): void {
     this.dialog.open(MovieCardComponent, {

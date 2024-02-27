@@ -11,6 +11,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UpdateUserInfoComponent implements OnInit {
   @Input() userData = { Username: '', Password: '', Email: '', Birthday: '' };
 
+  /**
+   *
+   * @param fetchApiData
+   * @param dialogRef
+   * @param snackBar
+   */
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<UpdateUserInfoComponent>,
@@ -18,6 +25,10 @@ export class UpdateUserInfoComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
+  /**
+   * @description calls on editUser() to update user's information
+   */
 
   updateUserInfo(): void {
     this.fetchApiData.editUser(this.userData).subscribe({

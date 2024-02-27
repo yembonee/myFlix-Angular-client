@@ -9,17 +9,33 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  /**
+   * @param router
+   * @param snackBar
+   */
   constructor(public router: Router, public snackBar: MatSnackBar) {}
 
   ngOnInit(): void {}
+
+  /**
+   * @description navigates to the movies tab
+   */
 
   public openMovies(): void {
     this.router.navigate(['movies']);
   }
 
+  /**
+   * @description navigates to the profile tab
+   */
+
   public openProfile(): void {
     this.router.navigate(['profile']);
   }
+
+  /**
+   * @description navigates to the welcome screen after logging out user
+   */
 
   public logoutUser(): void {
     localStorage.setItem('user', '');

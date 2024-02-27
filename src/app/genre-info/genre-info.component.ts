@@ -7,6 +7,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./genre-info.component.scss'],
 })
 export class GenreInfoComponent implements OnInit {
+  /**
+   * @param data - genre data based off selected movie
+   */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {
