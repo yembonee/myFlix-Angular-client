@@ -1,10 +1,10 @@
 # MyFlixAngularClient
 
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+
 # Site is deployed and live using Netlify
 
 Project is live here: [Click Here](https://meek-alfajores-f2f0db.netlify.app/)
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
 
 ## Development server
 
