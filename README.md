@@ -39,4 +39,4 @@ Project is live here: [Click Here](https://meek-alfajores-f2f0db.netlify.app/)
 
 ## Contact
 
-If you have any inquiries, email me [Here](yemsonidowu@gmail.com)
+If you have any inquiries, email me [Here](mailto:yemsonidowu@gmail.com)
